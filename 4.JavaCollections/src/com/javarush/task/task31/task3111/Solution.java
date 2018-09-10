@@ -19,7 +19,7 @@ public class Solution {
         searchFileVisitor.setMinSize(500);
         searchFileVisitor.setMaxSize(10000);
 
-        Files.walkFileTree(Paths.get("/Users/maria/javasrc/test/"), searchFileVisitor);
+        Files.walkFileTree(Paths.get("/Users/mitry/test/"), searchFileVisitor);
 
         List<Path> foundFiles = searchFileVisitor.getFoundFiles();
         for (Path file : foundFiles) {
