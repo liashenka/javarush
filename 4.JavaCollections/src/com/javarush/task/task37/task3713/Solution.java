@@ -1,21 +1,22 @@
-package com.javarush.task.task37.task3712;
+package com.javarush.task.task37.task3713;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.javarush.task.task37.task3713.space.crew.AbstractCrewMember;
+import com.javarush.task.task37.task3713.space.SpaceShip;
 
 /* 
-Шаблонный метод
+Chain of Responsibility
 */
 public class Solution {
     public static void main(String[] args) {
-        List<Game> games = new ArrayList<>();
-        games.add(new Football());
-        games.add(new Basketball());
-        games.add(new Tennis());
+        SpaceShip spaceShip = new SpaceShip();
+        AbstractCrewMember crewMember = spaceShip.getCrewChain();
 
-        for(Game game : games) {
-            game.run();
-            System.out.println("---------------------------------------------");
-        }
+        crewMember.handleRequest(AbstractCrewMember.CompetencyLevel.EXPERT, "ATTACK");
+        System.out.println("-----------------------------------------");
+        crewMember.handleRequest(AbstractCrewMember.CompetencyLevel.NOVICE, "WASH THE FLOOR");
+        System.out.println("-----------------------------------------");
+        crewMember.handleRequest(AbstractCrewMember.CompetencyLevel.INTERMEDIATE, "CHECK ENGINE");
+        System.out.println("-----------------------------------------");
+        crewMember.handleRequest(AbstractCrewMember.CompetencyLevel.ADVANCED, "SET ROUTE");
     }
 }
